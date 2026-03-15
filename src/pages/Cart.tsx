@@ -17,7 +17,6 @@ export default function Cart() {
   };
 
   const handleCheckout = () => {
-    // dispatch(clearItem());
     navigate("/checkout");
   };
   return (
