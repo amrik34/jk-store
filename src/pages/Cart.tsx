@@ -1,6 +1,6 @@
-import { clearItem, removeItem, updateQuantity } from "../redux/cartSlice";
-import { useNavigate } from "react-router-dom";
-import { useAppDispatch, useAppSelector } from "../redux/hooks";
+import {removeItem, updateQuantity} from "../redux/cartSlice";
+import {useNavigate} from "react-router-dom";
+import {useAppDispatch, useAppSelector} from "../redux/hooks";
 
 export default function Cart() {
   const dispatch = useAppDispatch();
@@ -13,7 +13,7 @@ export default function Cart() {
   );
 
   const manageQty = (id: number, qty: any) => {
-    dispatch(updateQuantity({ id, quantity: qty }));
+    dispatch(updateQuantity({id, quantity: qty}));
   };
 
   const handleCheckout = () => {
@@ -82,8 +82,7 @@ export default function Cart() {
                             manageQty(item.id, Math.max(1, item.quantity - 1))
                           }
                           className="rounded-full px-3 py-1.5 text-sm text-slate-500 transition hover:text-slate-900"
-                          aria-label="Decrease quantity"
-                        >
+                          aria-label="Decrease quantity">
                           -
                         </button>
                         <input
@@ -99,8 +98,7 @@ export default function Cart() {
                           type="button"
                           onClick={() => manageQty(item.id, item.quantity + 1)}
                           className="rounded-full px-3 py-1.5 text-sm text-slate-500 transition hover:text-slate-900"
-                          aria-label="Increase quantity"
-                        >
+                          aria-label="Increase quantity">
                           +
                         </button>
                       </div>
@@ -111,8 +109,7 @@ export default function Cart() {
                     <td className="px-8 py-6">
                       <button
                         className="rounded-full border border-rose-200 bg-rose-50 px-4 py-2 text-xs font-semibold uppercase tracking-wide text-rose-700 transition hover:bg-rose-100"
-                        onClick={() => dispatch(removeItem(item.id))}
-                      >
+                        onClick={() => dispatch(removeItem(item.id))}>
                         Remove
                       </button>
                     </td>
@@ -148,14 +145,12 @@ export default function Cart() {
             </div>
             <button
               className="mt-5 w-full rounded-full bg-slate-900 px-5 py-3 text-sm font-semibold uppercase tracking-wide text-white transition hover:bg-slate-800"
-              onClick={() => handleCheckout()}
-            >
+              onClick={() => handleCheckout()}>
               Checkout
             </button>
             <button
               className="mt-3 w-full rounded-full border border-slate-200 px-5 py-3 text-sm font-semibold uppercase tracking-wide text-slate-700 transition hover:border-slate-300 hover:text-slate-900"
-              onClick={() => navigate("/shop")}
-            >
+              onClick={() => navigate("/shop")}>
               Continue Shopping
             </button>
           </aside>
